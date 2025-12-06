@@ -1,4 +1,3 @@
-# inventory_env.py
 from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import List, Tuple
@@ -7,10 +6,6 @@ import matplotlib.pyplot as plt
 import itertools 
 
 import inventory_config as cfg
-
-# =========================
-# Data structures
-# =========================
 
 @dataclass
 class MajorItem:
@@ -64,14 +59,14 @@ class InventorySystem:
     def u_of_F(self, F: float, G1: float, G2: float, G3: float) -> float:
         return G1 * F**2 - G2 * F + G3
 
-    # ---------- Cost Function (Eq 2 / Eq 5) ----------
+    #  Cost Function (Eq 2 / Eq 5
     def cost_given_K_T_F(self, K: List[int], T: float, F: float) -> float:
         if T <= 0: return float('inf')
         G0, G1, G2, G3 = self.compute_G0_G1_G2_G3(K)
         uF = self.u_of_F(F, G1, G2, G3)
         return G0 / T + T * uF
 
-    # ---------- Optimal T* and F* (Eq 8 & Eq 6) ----------
+    # Optimal T* and F* (Eq 8 & Eq 6
     def optimal_T_F_for_K(self, K: List[int]) -> Tuple[float, float, float]:
         G0, G1, G2, G3 = self.compute_G0_G1_G2_G3(K)
         
@@ -82,21 +77,13 @@ class InventorySystem:
             F_star = max(0.0, min(1.0, (G2 / (2.0 * G1))))
             
         # Eq (9) or Eq (6): T*
-        # u(F) = G1*F^2 - G2*F + G3
         uF = self.u_of_F(F_star, G1, G2, G3)
         
-        if uF <= 0:
-            # Fallback for numerical stability, though theoretically u(F) > 0
-            T_star = 1.0 
-        else:
-            T_star = math.sqrt(G0 / uF)
+        T_star = math.sqrt(G0 / uF)
             
         cost_star = self.cost_given_K_T_F(K, T_star, F_star)
         return T_star, F_star, cost_star
 
-    # =================================================
-    #  PLOT FUNCTIONS (Updated for Multiple Items)
-    # =================================================
     def _build_major_paths(self, T: float, F: float, n_cycles: int = 2):
         D = self.major.D
         times, onhand, backlog = [], [], []
@@ -136,7 +123,7 @@ class InventorySystem:
             times.append(base + k_i*T); inv = Qi; level.append(inv)
         return times, level
 
-    def plot_figure1_like(self, K: List[int], T: float, F: float, n_super_cycles: int = 1, minor_index=None, case_id=None):
+    def plot_figure(self, K: List[int], T: float, F: float, n_super_cycles: int = 1, minor_index=None, case_id=None):
         max_k = max(K) if K else 1
         major_cycles_needed = max_k * n_super_cycles
         
@@ -151,8 +138,6 @@ class InventorySystem:
         for i, (k_i, minor) in enumerate(zip(K, self.minors)):
             cycles_for_this_item = math.ceil((max_k * n_super_cycles) / k_i)
             times_m, level_m = self._build_minor_path(i, k_i, T, F, cycles_for_this_item)
-            
-            # Trim to match plot length
             max_time = times_M[-1]
             times_m_trimmed = [t for t in times_m if t <= max_time]
             level_m_trimmed = level_m[:len(times_m_trimmed)]
@@ -176,9 +161,6 @@ if __name__ == '__main__':
     from datetime import datetime
 
     def process_file_with_fixed_k(input_csv: str, output_csv: str):
-        """
-        Đọc một file test case và tính toán chi phí cho mỗi dòng với K cố định là [1,1,...].
-        """
         print(f"  Processing baseline for: '{os.path.basename(input_csv)}'")
         with open(input_csv, 'r', encoding='utf-8') as f_in, \
              open(output_csv, 'w', newline='', encoding='utf-8') as f_out:
@@ -186,14 +168,12 @@ if __name__ == '__main__':
             reader = csv.reader(f_in)
             writer = csv.writer(f_out)
             
-            # Tạo header cho file output, tương tự như file kết quả của optimize_k_batch
             header_in = next(reader)
             num_minors = (len(header_in) - 5) // 4
             output_header = ['case_id', 'major_A', 'major_Ch', 'major_Cb', 'K_star', 'T_star', 'F_star', 'G_star', 'warning_negative_demand']
             writer.writerow(output_header)
 
             for row in reader:
-                # --- Parse dữ liệu từ dòng CSV ---
                 case_id = row[0]
                 row_data = [float(val) for val in row[1:]]
                 
@@ -208,22 +188,16 @@ if __name__ == '__main__':
                 
                 system = InventorySystem(major=major, minors=minors)
                 
-                # --- Tính toán với K cố định ---
-                # Đây là điểm khác biệt chính: K luôn là một vector gồm các số 1
                 K_fixed = [1] * len(minors)
                 
                 try:
-                    # Sử dụng phương thức có sẵn để tính T*, F*, và Cost* cho K đã cho
                     T_star, F_star, G_star = system.optimal_T_F_for_K(K_fixed)
                 except Exception as e:
                     T_star, F_star, G_star = "ERROR", "ERROR", f"ERROR: {e}"
 
-                # --- Kiểm tra "nhu cầu âm" ---
                 negative_demand_items = [f'M{j+1}' for j, m in enumerate(minors) if (m.D_i - m.ell_i * major.D) < 0]
                 warning_msg = f"Negative demand: {','.join(negative_demand_items)}" if negative_demand_items else "None"
                 
-                # --- Ghi kết quả ---
-                # Chuyển đổi T_star, F_star, G_star sang string để ghi cho an toàn
                 T_str = f"{T_star:.6f}" if isinstance(T_star, float) else T_star
                 F_str = f"{F_star:.6f}" if isinstance(F_star, float) else F_star
                 G_str = f"{G_star:.4f}" if isinstance(G_star, float) else G_star
@@ -231,12 +205,6 @@ if __name__ == '__main__':
                 output_row = [case_id, maj_A, maj_Ch, maj_Cb, str(K_fixed), T_str, F_str, G_str, warning_msg]
                 writer.writerow(output_row)
 
-    # --- Logic chính để chạy hàng loạt ---
-    print("="*50)
-    print("RUNNING BASELINE CALCULATION (K=[1,1,...])")
-    print("="*50)
-
-    # Đảm bảo các thư mục tồn tại
     os.makedirs(cfg.INPUT_DIR, exist_ok=True)
     os.makedirs(cfg.OUTPUT_DIR, exist_ok=True)
 
@@ -247,15 +215,13 @@ if __name__ == '__main__':
         input_files = []
 
     if not input_files:
-        print("No 'test_cases_*.csv' files found in input directory.")
-        print("Please run 'generate_test_cases.py' first and ensure files are in the correct directory.")
+        print("No test_case files found in input directory.")
     else:
         start_time = datetime.now()
         print(f"Starting baseline calculation at {start_time.strftime('%Y-%m-%d %H:%M:%S')}")
         print(f"Found {len(input_files)} test case file(s) in '{cfg.INPUT_DIR}/'")
 
         for input_file in sorted(input_files):
-            # Tạo tên file output riêng biệt
             output_filename = f"results_K1_{os.path.basename(input_file)}"
             
             input_path = os.path.join(cfg.INPUT_DIR, input_file)
@@ -266,4 +232,3 @@ if __name__ == '__main__':
         end_time = datetime.now()
         print(f"\nAll baseline calculations finished at {end_time.strftime('%Y-%m-%d %H:%M:%S')}")
         print(f"Total duration: {end_time - start_time}")
-        print(f"Baseline results saved in '{cfg.OUTPUT_DIR}/' with prefix 'results_K1_'")

@@ -4,4 +4,3 @@ matplotlib
 seaborn
 pyomo
 
-#conda install -c conda-forge scip

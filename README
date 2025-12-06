@@ -1,5 +1,4 @@
 pip install -r requirements.txt
-run the conda line to install exact solver
 
 1. Run generate_test_case.py to generate test cases
     cases are saved in data_test folder
@@ -12,5 +11,4 @@ run the conda line to install exact solver
     set config.PLOT = True
 
 Results for batch run are stored in batch_results folder
-Results for single run and plots are stored in logs folder
-
+Results for single run are stored in logs folder

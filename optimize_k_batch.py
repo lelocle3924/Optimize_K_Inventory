@@ -1,16 +1,12 @@
-# optimize_k_batchprocess.py (Version 2)
 import csv
 import os
 from datetime import datetime
 import sys
 from typing import List, Tuple
 
-
-# Chuyển hướng stdout sang stderr để không ảnh hưởng progress bar
 _stdout = sys.stdout
 sys.stdout = sys.stderr
 
-# Import các lớp và hàm
 from inventory_env import InventorySystem, MajorItem, MinorItem
 import inventory_config as cfg
 from logger import RunLogger
@@ -87,12 +83,8 @@ def compute_quotients(system: InventorySystem, K: List[int]) -> Tuple[float, Lis
         Qi = (2.0 * m.A_i / denom_i) if denom_i > 0 else 9999.9
         Qi_list.append(Qi)
     return cost, Qi_list, Q0, T_star, F_star
-# ------------------------------------------------------------------
 
 def process_file(input_csv: str, output_csv: str):
-    """
-    Đọc file CSV đầu vào, chạy tối ưu, và ghi kết quả tóm tắt ra file CSV đầu ra.
-    """
     logger.log(f"\nProcessing batch file: '{input_csv}'...\n")
 
     if 'low_cost' in input_csv:
@@ -102,7 +94,6 @@ def process_file(input_csv: str, output_csv: str):
         selected_q_threshold = cfg.q_threshold_high
         _stdout.write(f"  Detected 'high_cost' case. Using q_threshold = {selected_q_threshold}\n")
     else:
-        # Fallback nếu không xác định được, dùng giá trị low làm mặc định
         selected_q_threshold = cfg.q_threshold_low
         _stdout.write(f"  Warning: Cost case not detected in filename. Defaulting to q_threshold = {selected_q_threshold}\n")
     
@@ -112,23 +103,18 @@ def process_file(input_csv: str, output_csv: str):
         reader = csv.reader(f_in)
         writer = csv.writer(f_out)
         
-        # --- Đọc header và tạo header cho file output tóm tắt ---
         header_in = next(reader)
-        num_minors = (len(header_in) - 5) // 4 # -5 vì có thêm case_id
+        num_minors = (len(header_in) - 5) // 4
         
         output_header = ['case_id', 'major_A', 'major_Ch', 'major_Cb', 'K_star', 'T_star', 'F_star', 'G_star', 'warning_negative_demand']
         writer.writerow(output_header)
         
-        # Đếm số dòng để hiển thị progress bar
-        # Lưu ý: việc này đọc lại file, có thể làm chậm nếu file rất lớn.
-        # Với vài nghìn dòng thì không đáng kể.
         total_rows = sum(1 for row in open(input_csv)) - 1
         
-        f_in.seek(0) # Quay lại đầu file
-        next(reader) # Bỏ qua header một lần nữa
+        f_in.seek(0)
+        next(reader)
 
         for i, row in enumerate(reader):
-            # --- Progress bar ---
             if (i+1)%4 ==0:
                 progress = (i + 1) / total_rows
                 bar_length = 40
@@ -136,7 +122,6 @@ def process_file(input_csv: str, output_csv: str):
                 bar = '█' * filled_length + '-' * (bar_length - filled_length)
                 logger.log(f'  Running cases: |{bar}| {progress:.1%} ({i+1}/{total_rows})')
 
-            # --- Parse dữ liệu từ dòng CSV ---
             case_id = row[0]
             row_data = [float(val) for val in row[1:]]
             
@@ -158,7 +143,7 @@ def process_file(input_csv: str, output_csv: str):
 
             if cfg.PLOT and cfg.BATCH==False:
                 logger.log("\n==== DRAWING INVENTORY FIGURE ====")
-                system.plot_figure1_like(K=K_star, T=T_star, F=F_star, n_super_cycles=cfg.PLOT_OPTIONS["n_super_cycles"], case_id=case_id)
+                system.plot_figure(K=K_star, T=T_star, F=F_star, n_super_cycles=cfg.PLOT_OPTIONS["n_super_cycles"], case_id=case_id)
             else:
                 pass
 
@@ -169,9 +154,9 @@ def process_file(input_csv: str, output_csv: str):
             writer.writerow(output_row)
 
     if cfg.BATCH:
-        logger.log(f"\n-> Batch processing complete. Results saved to '{output_csv}'\n")
+        logger.log(f"\nBatch processing complete. Results saved to '{output_csv}'\n")
     else:
-        logger.log(f"\n-> Single file processing complete. Results saved to '{output_csv}'\n")
+        logger.log(f"\nSingle file processing complete. Results saved to '{output_csv}'\n")
 
 if __name__ == '__main__':
     sys.stdout = _stdout

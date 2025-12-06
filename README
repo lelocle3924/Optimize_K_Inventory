@@ -12,4 +12,5 @@ run the conda line to install exact solver
     set config.PLOT = True
 
 Results for batch run are stored in batch_results folder
-Results for single run are stored in logs folder
+Results for single run and plots are stored in logs folder
+

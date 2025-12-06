@@ -1,0 +1,14 @@
+Starting batch process at 2025-12-06 14:26:14
+
+Processing batch file: 'data\test_1_case.csv'...
+
+
+==== DRAWING INVENTORY FIGURE ====
+
+==== DRAWING INVENTORY FIGURE ====
+
+-> Single file processing complete. Results saved to 'batch_results\results_summary_test_1_case.csv'
+
+
+All batches finished at 2025-12-06 14:26:35
+Total duration: 0:00:20.544716

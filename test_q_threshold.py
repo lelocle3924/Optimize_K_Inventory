@@ -12,9 +12,6 @@ from optimize_k_batch import optimize_K
 import inventory_config as cfg
 
 def run_q_threshold_test(input_csv: str, output_csv: str):
-    """
-    Chạy thử nghiệm để tìm giá trị q_threshold tối ưu.
-    """
     _stdout.write(f"\nStarting q-threshold test for: '{input_csv}'\n")
 
     all_cases = []

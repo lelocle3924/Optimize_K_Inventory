@@ -30,16 +30,3 @@ BATCH = False
 
 PLOT = True
 single_file = "test_cases_N5_high_cost - Copy.csv"
-
-# ------------------------------------------------------------------------------
-# EXACT SOLVER PARAMS
-# ------------------------------------------------------------------------------
-
-RUN_EXACT_SOLVER_BATCH = True
-
-EXACT_SOLVER_K_MAX = 20
-EXACT_SOLVER_TIME_LIMIT = 10
-
-EXACT_SOLVER_NAME = 'scip'
-EXACT_OUTPUT_DIR = "exact_solver_results"
-EXACT_SOLVER_PATH = r"C:\Program Files\IBM\ILOG\CPLEX_Studio_Community2212\cplex\bin\x64_win64\cplex.exe"

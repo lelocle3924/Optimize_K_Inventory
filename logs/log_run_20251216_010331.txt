@@ -1,0 +1,245 @@
+Starting batch process at 2025-12-16 01:01:06
+Using heuristic N
+
+Processing batch file: 'generate/generated_test_cases\N10_10_high.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N10_10_high.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N10_10_low.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N10_10_low.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N10_15_high.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N10_15_high.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N10_15_low.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N10_15_low.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N10_20_high.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N10_20_high.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N10_20_low.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N10_20_low.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N10_5_high.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N10_5_high.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N10_5_low.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N10_5_low.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N15_10_high.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N15_10_high.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N15_10_low.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N15_10_low.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N15_15_high.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N15_15_high.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N15_15_low.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N15_15_low.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N15_20_high.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N15_20_high.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N15_20_low.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N15_20_low.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N15_5_high.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N15_5_high.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N15_5_low.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N15_5_low.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N20_10_high.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N20_10_high.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N20_10_low.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N20_10_low.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N20_15_high.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N20_15_high.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N20_15_low.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N20_15_low.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N20_20_high.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N20_20_high.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N20_20_low.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N20_20_low.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N20_5_high.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N20_5_high.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N20_5_low.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N20_5_low.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N25_10_high.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N25_10_high.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N25_10_low.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N25_10_low.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N25_15_high.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N25_15_high.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N25_15_low.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N25_15_low.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N25_20_high.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N25_20_high.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N25_20_low.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N25_20_low.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N25_5_high.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N25_5_high.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N25_5_low.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N25_5_low.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N5_10_high.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N5_10_high.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N5_10_low.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N5_10_low.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N5_15_high.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N5_15_high.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N5_15_low.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N5_15_low.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N5_20_high.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N5_20_high.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N5_20_low.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N5_20_low.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N5_5_high.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N5_5_high.csv'
+
+
+Processing batch file: 'generate/generated_test_cases\N5_5_low.csv'...
+
+
+Batch processing complete. Results saved to 'batch_results/heuristic_n_results\results_N_N5_5_low.csv'
+
+
+All batches finished at 2025-12-16 01:03:31
+Total duration: 0:02:25.021327

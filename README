@@ -1,14 +1,26 @@
-pip install -r requirements.txt
+This repository implements the heuristic in this paper: Zhang, R., Kaku, I., & Xiao, Y. (2012). Model and heuristic algorithm of the joint replenishment problem with complete backordering and correlated demand. International Journal of Production Economics, 139(1), 33-41.
+
 
 1. Run generate_test_case.py to generate test cases
-    cases are saved in data_test folder
-2. Run optimize_k_batch.py to optimize K
+    cases are saved in generate/generated_test_cases folder
+2. to run base case with k=1
+    run inventory_env.py
+3. Run optimize_k_batch.py to optimize K
     set config.BATCH = True
-3. To run a single file for testing:
+    set config.USE_HEURISTIC_N = False
+4. to run Heuristic_N
+    set config.BATCH = True
+    set config.USE_HEURISTIC_N = True
+5. To run a single file for testing:
+    run optimize_k_batch.py
     set config.BATCH = False
     set config.single_file = "*.csv"
     To plot results:
     set config.PLOT = True
+
+6. To run sensitivity analysis:
+    run test_N_minors.py -> see results in sensitivity_results folder
+    run test_q_threshold.py -> see results in sensitivity_results folder
 
 Results for batch run are stored in batch_results folder
 Results for single run are stored in logs folder

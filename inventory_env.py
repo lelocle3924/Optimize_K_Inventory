@@ -110,7 +110,7 @@ class InventorySystem:
         for s in range(n_super_cycles):
             base = s * k_i * T
             inv = Qi
-            for j in range(k_i):
+            for j in range(int(k_i)):
                 cycle_start = base + j*T
                 times.append(cycle_start); level.append(inv)
                 inv -= I_iuu
@@ -127,7 +127,7 @@ class InventorySystem:
         max_k = max(K) if K else 1
         major_cycles_needed = max_k * n_super_cycles
         
-        times_M, onhand_M, backlog_M = self._build_major_paths(T, F, n_cycles=major_cycles_needed)
+        times_M, onhand_M, backlog_M = self._build_major_paths(T, F, n_cycles=int(major_cycles_needed))
 
         plt.figure(figsize=(12, 6))
         plt.plot(times_M, onhand_M, label="Major (On-hand)", linewidth=2, color='tab:blue')

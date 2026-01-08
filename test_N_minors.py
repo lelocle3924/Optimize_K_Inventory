@@ -108,7 +108,7 @@ def run_sensitivity_analysis(input_csv_path: str, output_dir: str):
 if __name__ == '__main__':
     sys.stdout = _stdout
 
-    base_file_name = 'test_cases_N25_low_cost.csv'
+    base_file_name = 'Ntest_high.csv'
     
     input_file = os.path.join(cfg.INPUT_DIR, base_file_name)
     output_directory = "sensitivity_results"
